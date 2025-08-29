@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang=\"en\">
+<head>
+  <meta charset=\"UTF-8\" />
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
+  <title>Niyantran Coffee - Contact</title>
+  <script src=\"https://cdn.tailwindcss.com\"></script>
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] } } } }
+  </script>
+</head>
+<body class=\"bg-white text-slate-900\">
+  <header class=\"w-full bg-white border-b border-slate-200\">
+    <nav class=\"flex items-center justify-between p-4\">
+      <div class=\"text-xl font-semibold\">Niyantran</div>
+      <ul class=\"flex space-x-4 text-sm\">
+        <li><a href=\"./index.html\" class=\"hover:underline\">Home</a></li>
+        <li><a href=\"./about.html\" class=\"hover:underline\">About</a></li>
+        <li><a href=\"./menu.html\" class=\"hover:underline\">Menu</a></li>
+        <li><a href=\"./chart.html\" class=\"hover:underline\">Cart</a></li>
+        <li><a href=\"./checkout.html\" class=\"hover:underline\">Checkout</a></li>
+        <li><a href=\"./contact.html\" class=\"hover:underline\">Contact</a></li>
+      </ul>
+      <span id=\"cartCount\" class=\"ml-2 inline-flex items-center justify-center w-6 h-6 rounded-full bg-amber-500 text-white text-sm\">0</span>
+    </nav>
+  </header>
+  <main class=\"w-full px-4 py-6\">
+    <section class=\"w-full mb-6\">
+      <h1 class=\"text-2xl font-semibold\">Contact Us</h1>
+    </section>
+    <section class=\"w-full grid grid-cols-1 md:grid-cols-2 gap-6\">
+      <form class=\"border rounded-lg p-4 bg-white shadow\">
+        <div class=\"mb-4\"><label class=\"block text-sm font-medium mb-1\">Name</label><input class=\"w-full border rounded p-2\" type=\"text\"/></div>
+        <div class=\"mb-4\"><label class=\"block text-sm font-medium mb-1\">Email</label><input class=\"w-full border rounded p-2\" type=\"email\"/></div>
+        <div class=\"mb-4\"><label class=\"block text-sm font-medium mb-1\">Message</label><textarea class=\"w-full border rounded p-2\" rows=\"4\"></textarea></div>
+        <button type=\"submit\" class=\"px-4 py-2 bg-amber-500 text-white rounded\">Send Message</button>
+      </form>
+      <div class=\"border rounded-lg p-4 bg-white shadow\">
+        <h3 class=\"font-semibold mb-2\">Our Team</h3>
+        <p class=\"text-sm text-slate-700\">We respond within 24 hours. Reach us at support@niyantran.example</p>
+      </div>
+    </section>
+  </main>
+  <footer class=\"w-full bg-slate-100 text-slate-700 py-6\">
+    <div class=\"text-center text-sm\">© 2025 Niyantran. All rights reserved.</div>
+  </footer>
+  <script>
+    const cartKey = 'niyantran_cart';
+    function getCart(){ try { return JSON.parse(localStorage.getItem(cartKey) || '[]'); } catch(e){ return []; } }
+    function updateCartCount(){ const count = getCart().length; const el = document.getElementById('cartCount'); if(el) el.textContent = count; }
+    window.addEventListener('DOMContentLoaded', updateCartCount);
+  </script>
+</body>
+</html>
